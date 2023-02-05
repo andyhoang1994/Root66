@@ -1,6 +1,8 @@
 public enum MaterialType
 {
-    Wood, Iron
+    Mud,
+    Rock,
+    Wood
 }
 
 public class Material
@@ -15,5 +17,5 @@ public class Material
     public int Quantity { get; set; }
 
     private MaterialType type;
-    public MaterialType Type { get; set; }
+    public MaterialType Type { get; }
 }
