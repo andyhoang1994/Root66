@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// This class inherits from TargetObject and represents a PickupObject.
-/// </summary>
 public class SubmitMaterials : MonoBehaviour
 {
     public GameObject spawnPrefabOnPickup;
