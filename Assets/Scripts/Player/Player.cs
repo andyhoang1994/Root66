@@ -8,7 +8,10 @@ namespace Root66.PlayerSystems
     public class Player : MonoBehaviour
     {
         [SerializeField] private GameObject gameManager;
-        [SerializeField] private float health;
+        [SerializeField] private float maxHealth = 100f;
+        public float MaxHealth { get; }
+
+        public float health = 100;
         private GameState gameState;
 
         [System.Serializable]
@@ -240,10 +243,7 @@ namespace Root66.PlayerSystems
             Rigidbody = GetComponent<Rigidbody>();
             m_Inputs = GetComponents<IInput>();
             this.gameState = gameManager.GetComponent<GameState>();
-            Debug.Log($"gameManager.name: {gameManager.name}");
-            Debug.Log($"gameState.name: {gameState.name}");
-            Debug.Log($"gameState: {this.gameState.inventory == null}");
-            Debug.Log($"gameState test: {this.gameState.test}");
+            this.health = this.maxHealth;
 
             UpdateSuspensionParams(FrontLeftWheel);
             UpdateSuspensionParams(FrontRightWheel);
@@ -436,10 +436,6 @@ namespace Root66.PlayerSystems
             if (collider.GetComponent<Colony>() != null)
             {
                 this.gameState.inventory.AddItem(MaterialType.Wood, 1);
-            }
-            else
-            {
-                Debug.Log("not colony");
             }
         }
 
