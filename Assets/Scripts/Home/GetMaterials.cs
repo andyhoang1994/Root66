@@ -7,6 +7,7 @@ public class GetMaterials : MonoBehaviour
     void OnCollect()
     {
         Destroy(gameObject, collectDuration);
+        ObjectiveSpawner.SpawnRandomColony();
     }
 
     void OnTriggerEnter(Collider other)

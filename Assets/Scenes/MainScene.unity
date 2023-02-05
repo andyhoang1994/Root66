@@ -1473,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2296534888611935560, guid: 6bf6b72ece6d51e4c9df1e0b8a62704c, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2209350271914066341, guid: 6bf6b72ece6d51e4c9df1e0b8a62704c, type: 3}
       propertyPath: m_Layer
@@ -1509,7 +1509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1451252716874128845, guid: 6bf6b72ece6d51e4c9df1e0b8a62704c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2610
+      value: 2163
       objectReference: {fileID: 0}
     - target: {fileID: -1403025564807145099, guid: 6bf6b72ece6d51e4c9df1e0b8a62704c, type: 3}
       propertyPath: m_Layer
@@ -2659,7 +2659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPoint: {fileID: 628548423}
   rigidbody: {fileID: 789737215}
-  speed: 50
+  speed: 20
 --- !u!136 &789737217
 CapsuleCollider:
   m_ObjectHideFlags: 0
