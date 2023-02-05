@@ -4,24 +4,7 @@ using UnityEngine;
 
 public class ColonySpawner : MonoBehaviour
 {
-    public static ColonySpawer(Vector3 position, Colony colony) {
-        Transform transform = Instantiate(ColonyAssets.Instance.pfColonies, position, Quaternion.identity);
-
-        ColonySpawner colonySpawner = transform.GetComponent<ColonySpawner>();
-        colonySpawner.SetColony(colony);
-    }
-
-    private Colony colony;
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    public void setColony(Colony colony)
-    {
-        this.colony = colony;
-        spriteRenderer.sprite = colony.GetSprite();
+    public static void SpawnColony(Vector3 position, Colony colony) {
+        Instantiate(ColonyAssets.Instance.colony1, position, Quaternion.identity);
     }
 }
