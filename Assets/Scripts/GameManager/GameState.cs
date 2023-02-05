@@ -11,22 +11,20 @@ public enum Objective
 
 public class GameState : MonoBehaviour
 {
-    private Inventory inventory;
+    public Inventory inventory;
+    public int test = 2;
 
     private Objective objective = Objective.None;
 
-    void Start()
+    void Awake()
     {
-        inventory = new Inventory();
+        Debug.Log("initializing");
+
+        this.inventory = new Inventory();
+        this.test = 5;
         ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony1);
         ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony2);
         ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony3);
         ObjectiveSpawner.SpawnHome();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

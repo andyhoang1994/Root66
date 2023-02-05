@@ -7,6 +7,9 @@ namespace Root66.PlayerSystems
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private GameObject gameManager;
+        private GameState gameState;
+
         [System.Serializable]
         public class StatPowerup
         {
@@ -235,6 +238,11 @@ namespace Root66.PlayerSystems
         {
             Rigidbody = GetComponent<Rigidbody>();
             m_Inputs = GetComponents<IInput>();
+            this.gameState = gameManager.GetComponent<GameState>();
+            Debug.Log($"gameManager.name: {gameManager.name}");
+            Debug.Log($"gameState.name: {gameState.name}");
+            Debug.Log($"gameState: {this.gameState.inventory == null}");
+            Debug.Log($"gameState test: {this.gameState.test}");
 
             UpdateSuspensionParams(FrontLeftWheel);
             UpdateSuspensionParams(FrontRightWheel);
@@ -410,6 +418,18 @@ namespace Root66.PlayerSystems
             {
                 if (Vector3.Dot(contact.normal, Vector3.up) > dot)
                     m_LastCollisionNormal = contact.normal;
+            }
+        }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            if (collider.GetComponent<Colony>() != null)
+            {
+                this.gameState.inventory.AddItem(MaterialType.Wood, 1);
+            }
+            else
+            {
+                Debug.Log("not colony");
             }
         }
 

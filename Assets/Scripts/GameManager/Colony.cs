@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class Colony
+public class Colony : MonoBehaviour
 {
     private Weapon weapon;
     private Weapon Weapon { get; set; }
