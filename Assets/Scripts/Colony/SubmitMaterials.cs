@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class SubmitMaterials : MonoBehaviour
 {
+    [SerializeField] private GameState gameState;
     public GameObject spawnPrefabOnPickup;
 
-    public float destroySpawnPrefabDelay = 1;
+    public float destroySpawnPrefabDelay = 2;
 
     [Tooltip("Destroy this gameobject after collectDuration seconds")]
     public float collectDuration = 0f;
