@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
     }
@@ -13,6 +12,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+/*        if (collision.gameObject.layer == "Terrain")
+        {
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>, GetComponent<Collider>());
+        }*/
+
     }
 }

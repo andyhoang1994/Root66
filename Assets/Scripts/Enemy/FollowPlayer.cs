@@ -17,9 +17,12 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
-        wayPointPos = new Vector3(wayPoint.transform.position.x, rigidbody.velocity.y, wayPoint.transform.position.z);
+        wayPointPos = new Vector3(wayPoint.transform.position.x, rigidbody.velocity.y * 5, wayPoint.transform.position.z);
         Vector3 newVelocity = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
-        transform.LookAt(wayPointPos);
+        var lookPosition = wayPointPos - transform.position;
+        lookPosition.y = 0;
+        var rotation = Quaternion.LookRotation(lookPosition);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
         transform.position = newVelocity;
     }
 }
