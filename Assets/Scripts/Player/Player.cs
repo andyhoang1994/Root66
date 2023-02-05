@@ -8,6 +8,7 @@ namespace Root66.PlayerSystems
     public class Player : MonoBehaviour
     {
         [SerializeField] private GameObject gameManager;
+        [SerializeField] private float health;
         private GameState gameState;
 
         [System.Serializable]
@@ -405,7 +406,16 @@ namespace Root66.PlayerSystems
             }
         }
 
-        void OnCollisionEnter(Collision collision) => m_HasCollision = true;
+        void OnCollisionEnter(Collision collision)
+        {
+            m_HasCollision = true;
+
+            if(collision.gameObject.GetComponent<Enemy>() != null)
+            {
+                health -= 1f;
+                Debug.Log($"Hit by enemy. health: {this.health}");
+            }
+        }
         void OnCollisionExit(Collision collision) => m_HasCollision = false;
 
         void OnCollisionStay(Collision collision)

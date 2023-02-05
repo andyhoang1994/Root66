@@ -5,18 +5,21 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject wayPoint;
+    public Rigidbody rigidbody;
     private Vector3 wayPointPos;
 
     [SerializeField] private float speed = 50.0f;
 
-    void Start()
+    void Awake()
     {
-        // wayPoint = GameObject.Find("WayPoint");
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y, wayPoint.transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+        wayPointPos = new Vector3(wayPoint.transform.position.x, rigidbody.velocity.y, wayPoint.transform.position.z);
+        Vector3 newVelocity = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+        transform.LookAt(wayPointPos);
+        transform.position = newVelocity;
     }
 }
