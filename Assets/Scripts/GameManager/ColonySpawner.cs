@@ -9,6 +9,23 @@ public class ObjectiveSpawner : MonoBehaviour
         Instantiate(colony, colony.transform.position, Quaternion.identity);
     }
 
+    public static void SpawnRandomColony()
+    {
+        int val = Random.Range(1, 4);
+        Debug.Log($"val: {val}");
+        switch (val) {
+            case 1:
+                SpawnColony(ObjectiveAssets.Instance.colony1);
+                break;
+            case 2:
+                SpawnColony(ObjectiveAssets.Instance.colony2);
+                break;
+            case 3:
+                SpawnColony(ObjectiveAssets.Instance.colony1);
+                break;
+        }
+    }
+
     public static void SpawnHome()
     {
         GameObject home = ObjectiveAssets.Instance.home;

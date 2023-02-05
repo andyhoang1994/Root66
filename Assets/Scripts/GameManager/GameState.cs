@@ -22,9 +22,6 @@ public class GameState : MonoBehaviour
 
         this.inventory = new Inventory();
         this.test = 5;
-        ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony1);
-        ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony2);
-        ObjectiveSpawner.SpawnColony(ObjectiveAssets.Instance.colony3);
-        ObjectiveSpawner.SpawnHome();
+        ObjectiveSpawner.SpawnRandomColony();
     }
 }

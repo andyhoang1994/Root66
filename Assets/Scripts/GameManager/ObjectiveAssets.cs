@@ -14,18 +14,3 @@ public class ObjectiveAssets: MonoBehaviour
     public GameObject colony3;
     public GameObject home;
 }
-/*
-public class ColonyMap
-{
-    private GameObject colony;
-    public GameObject Colony { get; }
-
-    private Vector3 position;
-    public Vector3 Position { get; }
-
-    public ColonyMap(GameObject colony, Vector3 position)
-    {
-        this.colony = colony;
-        this.position = position;
-    }
-}*/

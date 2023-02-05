@@ -7,6 +7,7 @@ public class SubmitMaterials : MonoBehaviour
     void OnCollect()
     {
         Destroy(gameObject, collectDuration);
+        ObjectiveSpawner.SpawnHome();
     }
 
     void OnTriggerEnter(Collider other)
